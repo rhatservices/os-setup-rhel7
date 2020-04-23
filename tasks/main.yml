@@ -34,6 +34,6 @@
 # #############################################################
 # Step 4: Auditd operations
 # #############################################################
-- name: Configre and start Auditd
+- name: Configure and start Auditd
   include_tasks: step4/main.yml
   tags: step4
