@@ -12,15 +12,15 @@
 # Step 2: Configure SSHD using a separate role
 # #############################################################
 - name: configure SSHD Daemon
-  include_role: 
+  include_role:
     name: sshd
-  tags: 
+  tags:
     - step2
     - sshd
 
 - name: Basic security - authconfig
   command: authconfig --passminlen=8 --enablereqother --enablerequpper --enablereqlower --enablereqdigit --update
-  tags: 
+  tags:
     - step2
     - authconfig
 
@@ -37,3 +37,10 @@
 - name: Configure and start Auditd
   include_tasks: step4/main.yml
   tags: step4
+
+# #############################################################
+# Step 4: Configure /etc/hsots/
+# #############################################################
+- name: Configure /etc/hosts
+  include_tasks: step5/main.yml
+  tags: step5
